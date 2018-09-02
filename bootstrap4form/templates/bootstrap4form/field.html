@@ -1,4 +1,4 @@
-{% load bootstrap %}
+{% load bootstrap4 %}
 
 <div class="form-group{% if field.errors %} has-error{% endif %}">
     {% if field|is_checkbox %}
@@ -10,13 +10,11 @@
                     </label>
                 {% endif %}
                 {% for error in field.errors %}
-                    <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+                    <span class="form-text {{ form.error_css_class }}">{{ error }}</span>
                 {% endfor %}
 
                 {% if field.help_text %}
-                    <p class="help-block">
-                        {{ field.help_text|safe }}
-                    </p>
+                    <small class="form-text text-muted">{{ field.help_text|safe }}</small>
                 {% endif %}
             </div>
         </div>
@@ -35,31 +33,27 @@
             {% endfor %}
 
             {% for error in field.errors %}
-                <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+                <span class="form-text {{ form.error_css_class }}">{{ error }}</span>
             {% endfor %}
 
             {% if field.help_text %}
-            <p class="help-block">
-                {{ field.help_text|safe }}
-            </p>
+                <small class="form-text text-muted">{{ field.help_text|safe }}</small>
             {% endif %}
         </div>
     {% else %}
         {% if field.auto_id %}
-            <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
+            <label class="{{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
         {% endif %}
 
         <div class="{{ classes.value }} {% if field|is_multiple_checkbox %}multiple-checkbox{% endif %}">
             {{ field }}
 
             {% for error in field.errors %}
-                <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+                <span class="form-text {{ form.error_css_class }}">{{ error }}</span>
                 {% endfor %}
 
             {% if field.help_text %}
-                <p class="help-block">
-                    {{ field.help_text|safe }}
-                </p>
+                <small class="form-text text-muted">{{ field.help_text|safe }}</small>
             {% endif %}
         </div>
     {% endif %}

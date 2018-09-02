@@ -4,7 +4,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django import template
 
-from bootstrapform import config
+from bootstrap4form import config
 
 register = template.Library()
 

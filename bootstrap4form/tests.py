@@ -6,7 +6,7 @@ from django.test import TestCase
 from django.template import Template, Context
 from django import forms
 
-from .templatetags import bootstrap
+from .templatetags import bootstrap4
 
 TEST_DIR = os.path.abspath(os.path.join(__file__, '..'))
 
@@ -44,12 +44,7 @@ class BootstrapTemplateTagTests(TestCase):
         html = Template("{% load bootstrap %}{{ form|bootstrap }}").render(Context({'form': form}))
 
 
-        if StrictVersion(django.get_version()) >= StrictVersion('1.7'):
-            fixture = 'basic.html'
-        elif StrictVersion(django.get_version()) >= StrictVersion('1.6'):
-            fixture = 'basic_dj16.html'
-        else:
-            fixture = 'basic_old.html'
+        fixture = 'basic.html'
 
         tpl = os.path.join('fixtures', fixture)
         with open(os.path.join(TEST_DIR, tpl)) as f:
@@ -62,12 +57,7 @@ class BootstrapTemplateTagTests(TestCase):
 
         html = Template("{% load bootstrap %}{{ form|bootstrap_horizontal }}").render(Context({'form': form}))
 
-        if StrictVersion(django.get_version()) >= StrictVersion('1.7'):
-            fixture = 'horizontal.html'
-        elif StrictVersion(django.get_version()) >= StrictVersion('1.6'):
-            fixture = 'horizontal_dj16.html'
-        else:
-            fixture = 'horizontal_old.html'
+        fixture = 'horizontal.html'
         
         tpl = os.path.join('fixtures', fixture)
         with open(os.path.join(TEST_DIR, tpl)) as f:
