@@ -1,46 +1,48 @@
-=====================
-Django bootstrap form
-=====================
+======================
+Django bootstrap4 form
+======================
 
-.. image:: https://badge.fury.io/py/django-bootstrap-form.png
+.. image:: https://badge.fury.io/py/django-bootstrap4-form.png
    :alt: PyPI version
-   :target: https://pypi.python.org/pypi/django-bootstrap-form
+   :target: https://pypi.python.org/pypi/django-bootstrap4-form
 
-.. image:: https://travis-ci.org/tzangms/django-bootstrap-form.png?branch=master   
-    :target: https://travis-ci.org/tzangms/django-bootstrap-form
+.. image:: https://travis-ci.org/gwasser/django-bootstrap4-form.png?branch=master   
+    :target: https://travis-ci.org/gwasser/django-bootstrap4-form
 
-.. image:: https://coveralls.io/repos/tzangms/django-bootstrap-form/badge.png?branch=master  
-   :target: https://coveralls.io/r/tzangms/django-bootstrap-form?branch=master
+.. image:: https://coveralls.io/repos/gwasser/django-bootstrap-form/badge.png?branch=master  
+   :target: https://coveralls.io/r/gwasser/django-bootstrap-form?branch=master
    
 
-Twitter Bootstrap for Django Form.
+Twitter Bootstrap4 for Django Forms.
 
-A simple Django template tag to work with `Bootstrap <http://getbootstrap.com/>`_
+A simple Django template tag to work with `Bootstrap 4 <http://getbootstrap.com/>`_
+
+Forked from the original `django-bootstrap-form` by @tzangms.
 
 Installation
-======
+============
 
-Install django-bootstrap-form with pip
+Install `django-bootstrap4-form` with `pip`
 
 .. code-block:: sh
 
-    $ pip install django-bootstrap-form
+    $ pip install django-bootstrap4-form
 
 Usage
 ======
 
-Add "bootstrapform" to your INSTALLED_APPS.
+Add "bootstrap4form" to your INSTALLED_APPS.
 
 At the top of your template load in our template tags::
 
-	{% load bootstrap %}
+	{% load bootstrap4form %}
 
 Then to render your form::
 
 	<form role="form">
 	    <legend>Form Title</legend>
 	    {% csrf_token %}
-	    {{ form|bootstrap }}
+	    {{ form|bootstrap4form }}
 	    <div class="form-group">
 	      <button type="submit" class="btn btn-primary">Submit</button>
 	    </div>
@@ -55,7 +57,7 @@ It is also possible to create a horizontal form. The form class and template tag
 	<form class="form-horizontal">
 	    <legend>Form Title</legend>
 	    {% csrf_token %}
-	    {{ form|bootstrap_horizontal }}
+	    {{ form|bootstrap4form_horizontal }}
 	    <div class="form-group">
 	      <div class="col-sm-10 col-sm-offset-2">
 	      	<button type="submit" class="btn btn-primary">Submit</button>
@@ -63,8 +65,3 @@ It is also possible to create a horizontal form. The form class and template tag
 	    </div>
 	</form>
 
-
-Demo
-=====
-
-Checkout this `Demo site <http://django-bootstrap-form.herokuapp.com/>`_ to see it in action. 
