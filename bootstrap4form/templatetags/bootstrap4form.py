@@ -9,19 +9,19 @@ from bootstrap4form import config
 register = template.Library()
 
 @register.filter
-def bootstrap(element):
+def bootstrap4form(element):
     markup_classes = {'label': '', 'value': '', 'single_value': ''}
     return render(element, markup_classes)
 
 
 @register.filter
-def bootstrap_inline(element):
+def bootstrap4form_inline(element):
     markup_classes = {'label': 'sr-only', 'value': '', 'single_value': ''}
     return render(element, markup_classes)
 
 
 @register.filter
-def bootstrap_horizontal(element, label_cols='col-sm-2 col-lg-2'):
+def bootstrap4form_horizontal(element, label_cols='col-sm-2 col-lg-2'):
 
     markup_classes = {'label': label_cols, 'value': '', 'single_value': ''}
 
@@ -60,7 +60,7 @@ def render(element, markup_classes):
 
     if element_type == 'boundfield':
         add_input_classes(element)
-        template = get_template("bootstrapform/field.html")
+        template = get_template("bootstrap4form/field.html")
         context = {'field': element, 'classes': markup_classes, 'form': element.form}
     else:
         has_management = getattr(element, 'management_form', None)
@@ -69,13 +69,13 @@ def render(element, markup_classes):
                 for field in form.visible_fields():
                     add_input_classes(field)
 
-            template = get_template("bootstrapform/formset.html")
+            template = get_template("bootstrap4form/formset.html")
             context = {'formset': element, 'classes': markup_classes}
         else:
             for field in element.visible_fields():
                 add_input_classes(field)
 
-            template = get_template("bootstrapform/form.html")
+            template = get_template("bootstrap4form/form.html")
             context = {'form': element, 'classes': markup_classes}
 
 
