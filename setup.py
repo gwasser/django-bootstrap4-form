@@ -23,7 +23,7 @@ setup(
     license='MIT',
     test_suite='runtests.runtests',
     install_requires = [
-        "django>=2.2,<3",
+        "django>=2.2",
     ],
     packages=find_packages(),
     include_package_data=True,
